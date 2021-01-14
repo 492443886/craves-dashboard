@@ -1,0 +1,77 @@
+<!--<mat-toolbar color="primary">-->
+  <!--<span>{{path}}</span>-->
+<!--</mat-toolbar>-->
+<mat-card>
+  <mat-card-content>
+    <mat-card-subtitle>
+      <span class="">{{ msg }}</span>
+    </mat-card-subtitle>
+
+
+    <div *ngIf="!institutionSelected">
+      <mat-list flex>
+        <app-institution-list [institutions]="institutions"  (selected)="selectInstitution($event)"></app-institution-list>
+      </mat-list>
+    </div>
+
+    <div *ngIf="institutionSelected && !modeSelected">
+      <mat-list flex>
+        <mat-list-item *ngFor="let mode of listTypes" layout="row" class="pad-xs mat-title"
+                       (click)="selectMode(mode)" >
+          {{ mode }}
+        </mat-list-item>
+      </mat-list>
+      <mat-icon (click)="backToInstitutionSelection()" matTooltip="go back to Mode Selection" color="primary" class="mat-36 pad-top-xxl">
+        arrow_back_ios
+      </mat-icon>
+    </div>
+
+    <div *ngIf="institutionSelected &&  activeMode">
+      <mat-list flex>
+
+        <mat-list-item *ngFor="let activeOrder of actives" layout="row" class="pad-xs mat-title"
+                       (click)="selectActiveOrder(activeOrder)" >
+          {{ activeOrder }}
+        </mat-list-item>
+        <!--TODO: active order list here-->
+
+      </mat-list>
+      <mat-icon (click)="backToModeSelection()" matTooltip="go back to Mode Selection" color="primary" class="mat-36 pad-top-xxl">
+        arrow_back_ios
+      </mat-icon>
+    </div>
+
+
+
+
+    <div *ngIf="institutionSelected && modeSelected && !activeMode && !userSelected">
+      <mat-list flex>
+        <app-user-list [users]="users"  (selected)="selectUser($event)"></app-user-list>
+      </mat-list>
+      <mat-icon (click)="backToModeSelection()" matTooltip="go back to User Selection" color="primary" class="mat-36 pad-top-xxl">
+        arrow_back_ios
+      </mat-icon>
+    </div>
+
+    <div *ngIf="institutionSelected && modeSelected && !activeMode && userSelected && !orderSelected">
+      <mat-list flex>
+        <app-order-list [orders]="orders" (selected)="selectOrder($event)"></app-order-list>
+      </mat-list>
+      <mat-icon (click)="backToUserSelection()" matTooltip="go back to User Selection" color="primary" class="mat-36 pad-top-xxl">
+        arrow_back_ios
+      </mat-icon>
+    </div>
+
+    <div *ngIf="institutionSelected && modeSelected && orderSelected">
+      <mat-list flex>
+        <app-order-detail  [order]="selectedOrder"
+                           (cancelled)="cancel('someKindOfMsg')"
+                           (saved)="save($event)"
+                           (deleted)="delete($event)"
+        >
+        </app-order-detail>
+      </mat-list>
+    </div>
+
+  </mat-card-content>
+</mat-card>

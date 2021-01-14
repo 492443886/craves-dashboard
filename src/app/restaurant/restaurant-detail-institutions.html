@@ -1,0 +1,9 @@
+<mat-list-item *ngFor="let institution of institutions" layout="row" class="pad-xs mat-title"
+               (click)="selected.emit(institution)"
+>
+  {{ institution.name }}
+  <mat-divider></mat-divider>
+</mat-list-item>
+<mat-icon (click)="addNewInstitution()" matTooltip="Add New Institution" color="primary" class="mat-36">
+  control_point
+</mat-icon>

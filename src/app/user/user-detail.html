@@ -1,0 +1,165 @@
+<form [formGroup]="userForm">
+  <td-expansion-panel expand="true" color="accent">
+    <ng-template td-expansion-panel-header >
+      <mat-toolbar color="accent" (click)="userexpand=!userexpand" style="margin-bottom: 15px">
+        <span>User information</span>
+        <span flex align="end">
+          <mat-icon *ngIf="!userexpand">expand_more</mat-icon>
+           <mat-icon *ngIf="userexpand">expand_less</mat-icon>
+         </span>
+      </mat-toolbar>
+    </ng-template>
+    <br>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="ID" type="text" required formControlName="id">
+      <mat-hint *ngIf="shouldDisplayHint('id')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('ID') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="User Name" type="text" required formControlName="userName">
+      <mat-hint *ngIf="shouldDisplayHint('userName')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('User Name') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="First Name" type="text" required formControlName="firstName">
+      <mat-hint *ngIf="shouldDisplayHint('firstName')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('First Name') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" type="text" required formControlName="lastName">
+      <mat-hint *ngIf="shouldDisplayHint('lastName')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Last Name') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Phone #" type="text" required formControlName="phoneNumber">
+      <mat-hint *ngIf="shouldDisplayHint('phoneNumber')" align="end" [ngStyle]="{'color': 'red'}">
+        <p *ngIf="f.phoneNumber.hasError('required')">{{ displayHint('Phone#') }}</p>
+        <p *ngIf="!f.phoneNumber.hasError('required') && f.phoneNumber.hasError('invalid')">valid format - (###)###-####</p>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Email" type="text" required formControlName="email">
+      <mat-hint *ngIf="shouldDisplayHint('email')" align="end" [ngStyle]="{'color': 'red'}">
+        <p *ngIf="f.email.hasError('required')"> {{ displayHint('Email') }} </p>
+        <p *ngIf="!f.email.hasError('required') && f.email.hasError('invalid')">valid format - xx@xx </p>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Institution" type="text" required formControlName="institution">
+      <mat-hint *ngIf="shouldDisplayHint('institution')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Institution') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Joint Date" type="text" required formControlName="joinedDate">
+      <mat-hint *ngIf="shouldDisplayHint('lastName')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Joint Date') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="User Category" type="text" required formControlName="userCategory">
+      <mat-hint *ngIf="shouldDisplayHint('userCategory')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('User Category') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  </td-expansion-panel>
+
+  <td-expansion-panel expand="false">
+    <ng-template td-expansion-panel-header>
+      <mat-toolbar color="accent" (click)="orderexpand=!orderexpand">
+        <span>Order information</span>
+        <span flex align="end">
+ <mat-icon *ngIf="orderexpand">expand_more</mat-icon>
+ <mat-icon *ngIf="!orderexpand">expand_less</mat-icon>
+ </span>
+      </mat-toolbar>
+    </ng-template>
+    <br>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Delivered Count" type="number" required formControlName="deliveredCount">
+      <mat-hint *ngIf="shouldDisplayHint('deliveredCount')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Delivered Count') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Money Spent" type="number" required formControlName="moneySpent">
+      <mat-hint *ngIf="shouldDisplayHint('moneySpent')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Money Spent') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Money Earned" type="number" required formControlName="moneyEarned">
+      <mat-hint *ngIf="shouldDisplayHint('moneyEarned')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Money Earned') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Commission Rate" type="number" required formControlName="commissionRate">
+      <mat-hint *ngIf="shouldDisplayHint('commissionRate')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Commission Rate') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Credit" type="number" required formControlName="credit">
+      <mat-hint *ngIf="shouldDisplayHint('credit')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Credit') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Warning Count" type="number" required formControlName="warningCount">
+      <mat-hint *ngIf="shouldDisplayHint('warningCount')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Warning Count') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Disable Threshold" type="number" required formControlName="disableThreshold">
+      <mat-hint *ngIf="shouldDisplayHint('disableThreshold')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Disable Threshold') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Disabled" type="text" required formControlName="isDisabled">
+      <mat-hint *ngIf="shouldDisplayHint('isDisabled')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Disabled') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+
+  <!--TODO: Handle institutions and items-->
+
+  <!--<div layout="row">-->
+    <!--<mat-form-field>-->
+      <!--<mat-select matInput placeholder="Active" required formControlName="isDisabled">-->
+        <!--<mat-option value="Active">Active</mat-option>-->
+        <!--<mat-option value="Inactive">Inactive</mat-option>-->
+      <!--</mat-select>-->
+      <!--<mat-hint *ngIf="shouldDisplayHint('isDisabled')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Active') }} </mat-hint>-->
+    <!--</mat-form-field>-->
+  <!--</div>-->
+
+  </td-expansion-panel>
+<br>
+  <div class="mat-pad-sm">
+    <span>
+      <!--[disabled]="!userForm.valid"-->
+      <button mat-raised-button type="button" (click)="updateSelectedUser()" [disabled]="!userForm.valid" >Save</button>
+    </span>
+    <span>
+      <button *ngIf="user.userID" mat-raised-button type="button" (click)="deleted.emit(user)">Delete</button>
+    </span>
+    <span>
+      <button mat-raised-button type="button" (click)="cancelled.emit(user)">Cancel</button>
+    </span>
+  </div>
+</form>
+

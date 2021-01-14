@@ -1,0 +1,39 @@
+
+<br>
+
+<div layout="row" flex layout-align="center center">
+  <button mat-stroked-button color="primary" (click)="testPDF()">test</button>
+</div>
+<br>
+<div layout="row" flex layout-align="center center">
+  <button mat-stroked-button color="primary" (click)="basicRes()" >Basic Restaurant report</button>
+
+</div>
+<br>
+<div layout="row" flex layout-align="center center">
+  <button mat-stroked-button color="primary" (click)="basicUser()">Basic User report</button>
+</div>
+
+<br>
+<div layout="row" flex layout-align="center center">
+  <button mat-stroked-button color="primary" (click)="basicOrder()">Basic Order report</button>
+
+</div>
+<br/>
+<div layout="row" flex layout-align="center center">
+  <button *ngIf="!isMonth" mat-stroked-button color="primary" (click)="monthFirst()">Month Report for user</button>
+
+  <div *ngIf="isMonth">
+    <mat-card>
+
+      <mat-card-content>
+        <app-month></app-month>
+      </mat-card-content>
+
+    </mat-card>
+
+
+  </div>
+</div>
+<br>
+

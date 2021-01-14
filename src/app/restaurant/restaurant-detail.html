@@ -1,0 +1,28 @@
+<mat-tab-group>
+  <mat-tab label="General">
+    <div class="pad-top-md">
+      <app-restaurant-detail-general class="pad-top-md" [restaurant]="restaurant" [(restaurantGeneralForm)]="restaurantForm" ></app-restaurant-detail-general>
+    </div>
+  </mat-tab>
+  <mat-tab label="Institutions">
+    <div class="pad-top-md">
+      <app-restaurant-detail-institutions class="pad-top-md" [(restaurant)]="restaurant" ></app-restaurant-detail-institutions>
+    </div>
+  </mat-tab>
+  <mat-tab label="Menu">
+    <div class="pad-top-md">
+      <app-restaurant-detail-items class="pad-top-md" [(restaurant)]="restaurant" ></app-restaurant-detail-items>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+<div class="mat-pad-sm">
+    <span>
+      <button mat-raised-button type="button" (click)="updateSelectedRestaurant()" [disabled]="!restaurantForm.valid">Save</button>
+    </span>
+  <span>
+      <button *ngIf="restaurant.id" mat-raised-button type="button" (click)="deleted.emit(restaurant)">Delete</button>
+    </span>
+  <span>
+      <button mat-raised-button type="button" (click)="cancelled.emit(restaurant)">Cancel</button>
+    </span>
+</div>

@@ -1,0 +1,6 @@
+<mat-list-item *ngFor="let restaurant of restaurants" layout="row" class="pad-xs mat-title"
+               (click)="selected.emit(restaurant)"
+>
+  {{ restaurant.name }}
+  <mat-divider></mat-divider>
+</mat-list-item>

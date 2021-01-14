@@ -1,0 +1,83 @@
+<form [formGroup]="restaurantGeneralForm">
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="ID" type="text" required formControlName="id">
+      <mat-hint *ngIf="shouldDisplayHint('id')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('ID') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Name" type="text" required formControlName="name">
+      <mat-hint *ngIf="shouldDisplayHint('name')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Name') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Address" type="text" required formControlName="address">
+      <mat-hint *ngIf="shouldDisplayHint('address')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Address') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Phone #" type="text" required formControlName="phoneNumber">
+      <mat-hint *ngIf="shouldDisplayHint('phoneNumber')" align="end" [ngStyle]="{'color': 'red'}">
+        <p *ngIf="f.phoneNumber.hasError('required')">{{ displayHint('Phone#') }}</p>
+        <p *ngIf="!f.phoneNumber.hasError('required') && f.phoneNumber.hasError('invalid')">valid format - (###)###-####</p>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Email" type="text" required formControlName="email">
+      <mat-hint *ngIf="shouldDisplayHint('email')" align="end" [ngStyle]="{'color': 'red'}">
+        <p *ngIf="f.email.hasError('required')"> {{ displayHint('Email') }} </p>
+        <p *ngIf="!f.email.hasError('required') && f.email.hasError('invalid')">valid format - xx@xx </p>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Base Service Fee" type="number" required formControlName="baseServiceFee">
+      <mat-hint *ngIf="shouldDisplayHint('baseServiceFee')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Base Service Fee') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Service Fee Rate" type="number" required formControlName="serviceFeeRate">
+      <mat-hint *ngIf="shouldDisplayHint('serviceFeeRate')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Service Fee Rate') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Commission Rate" type="number" required formControlName="commissionRate">
+      <mat-hint *ngIf="shouldDisplayHint('commissionRate')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Commission Rate') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Discount Rate" type="number" required formControlName="discountRate">
+      <mat-hint *ngIf="shouldDisplayHint('discountRate')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Discount Rate') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Contact Name" type="text" required formControlName="contactName">
+      <mat-hint *ngIf="shouldDisplayHint('contactName')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Contact Name') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <input matInput placeholder="Deliver Time Window" type="number" required formControlName="deliverTimeWindow">
+      <mat-hint *ngIf="shouldDisplayHint('deliverTimeWindow')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Deliver Time Window') }} </mat-hint>
+    </mat-form-field>
+  </div>
+  <div layout="row">
+    <mat-form-field>
+      <mat-select matInput placeholder="Active" required formControlName="isActive">
+        <mat-option value="Active">Active</mat-option>
+        <mat-option value="Inactive">Inactive</mat-option>
+      </mat-select>
+      <mat-hint *ngIf="shouldDisplayHint('isActive')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Type') }} </mat-hint>
+    </mat-form-field>
+  </div>
+</form>

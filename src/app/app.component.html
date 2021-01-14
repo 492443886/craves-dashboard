@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>Craves Dashboard</span>
+  <!-- This fills the remaining space of the current row -->
+  <span style="flex: 1 1 auto;"></span>
+  <button mat-button [matMenuTriggerFor]="appMenu" align="end">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu #appMenu="matMenu">
+  <a mat-menu-item [routerLink]="['home']">home</a>
+  <a mat-menu-item [routerLink]="['users']">users</a>
+  <a mat-menu-item [routerLink]="['orders']">orders</a>
+  <a mat-menu-item [routerLink]="['restaurants']">restaurants</a>
+  <a mat-menu-item [routerLink]="['generator']">Generator</a>
+</mat-menu>
+<router-outlet></router-outlet>

@@ -1,0 +1,146 @@
+<form [formGroup]="orderForm">
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Created Time" type="text" required formControlName="createdTime">
+      <mat-hint *ngIf="shouldDisplayHint('createdTime')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Created Time') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Customer ID" type="text" required formControlName="customerID">
+      <mat-hint *ngIf="shouldDisplayHint('customerID')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Customer ID') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Deliver Time Window" type="text" required formControlName="deliverTimeWindow">
+      <mat-hint *ngIf="shouldDisplayHint('deliverTimeWindow')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Deliver Time Window') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="delivery Fee" type="text" required formControlName="deliveryFee">
+      <mat-hint *ngIf="shouldDisplayHint('deliveryFee')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('delivery Fee') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="delivery Location" type="text" required formControlName="deliveryLocation">
+      <mat-hint *ngIf="shouldDisplayHint('deliveryLocation')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('delivery Location') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Flagged" type="text" required formControlName="isFlagged">
+      <mat-hint *ngIf="shouldDisplayHint('isFlagged')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('Flagged') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="Updated" type="text" required formControlName="isUpdated">
+      <mat-hint *ngIf="shouldDisplayHint('isUpdated')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('updated') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <td-expansion-panel expand="false" color="accent">
+
+    <ng-template td-expansion-panel-header >
+      <mat-toolbar color="accent" (click)="itemexpand=!itemexpand" style="margin-bottom: 15px">
+        <span>Order Items</span>
+        <span flex align="end">
+          <mat-icon *ngIf="!itemexpand">expand_more</mat-icon>
+          <mat-icon *ngIf="itemexpand">expand_less</mat-icon>
+         </span>
+      </mat-toolbar>
+    </ng-template>
+    <br>
+    <app-order-item-list [items] = "order.items">
+    </app-order-item-list>
+
+
+
+  </td-expansion-panel>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="order Status" type="text" required formControlName="orderStatus">
+      <mat-hint *ngIf="shouldDisplayHint('orderStatus')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('order Status') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="restaurant Discount" type="text" required formControlName="restaurantDiscount">
+      <mat-hint *ngIf="shouldDisplayHint('restaurantDiscount')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('restaurant Discount') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="restaurant Name" type="text" required formControlName="restaurantName">
+      <mat-hint *ngIf="shouldDisplayHint('restaurantName')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('restaurant Name') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="commission Restaurant" type="text" required formControlName="commissionRestaurant">
+      <mat-hint *ngIf="shouldDisplayHint('commissionRestaurant')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('commission Restaurant') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="commission User" type="text" required formControlName="commissionUser">
+      <mat-hint *ngIf="shouldDisplayHint('commissionUser')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('commission User') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="subtotal" type="text" required formControlName="subtotal">
+      <mat-hint *ngIf="shouldDisplayHint('subtotal')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('subtotal') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="tax" type="text" required formControlName="tax">
+      <mat-hint *ngIf="shouldDisplayHint('tax')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('tax') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="tip" type="text" required formControlName="tip">
+      <mat-hint *ngIf="shouldDisplayHint('tip')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('tip') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div layout="row" flex>
+    <mat-form-field>
+      <input matInput placeholder="total" type="text" required formControlName="total">
+      <mat-hint *ngIf="shouldDisplayHint('total')" align="end" [ngStyle]="{'color': 'red'}"> {{ displayHint('total') }} </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <br>
+  <div class="mat-pad-sm">
+    <span>
+      <button mat-raised-button type="button" (click)="updateSelectedUser()"  >Save</button>
+    </span>
+    <span>
+      <button mat-raised-button type="button" (click)="deleted.emit(order)">Delete</button>
+    </span>
+    <span>
+      <button mat-raised-button type="button" (click)="cancelled.emit(order)">Cancel</button>
+    </span>
+  </div>
+</form>

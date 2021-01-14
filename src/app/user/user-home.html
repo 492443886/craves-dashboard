@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-subtitle>
+      <span class="">{{ msg }}</span>
+    </mat-card-subtitle>
+    <div *ngIf="!showDetails">
+      <mat-list flex>
+        <app-user-list [users]="users"  (selected)="selectUser($event)"></app-user-list>
+      </mat-list>
+      <mat-icon (click)="addNewUser()" matTooltip="Add New User" color="primary" class="mat-36 pad-top-xxl">
+        control_point
+      </mat-icon>
+    </div>
+    <div *ngIf="showDetails">
+      <mat-list flex>
+        <app-user-detail  [user]="selectedUser"
+                                (cancelled)="cancel('someKindOfMsg')"
+                                (saved)="save($event)"
+                                (deleted)="delete($event)"
+        >
+        </app-user-detail>
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>
